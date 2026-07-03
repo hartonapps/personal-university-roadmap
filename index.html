@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal University | Founder Master Roadmap</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="auth-gate" class="auth-gate hidden">
+        <div class="auth-card">
+            <div class="auth-badge">Private access</div>
+            <h1>Unlock Personal Univ.</h1>
+            <p id="auth-message" class="text-muted">Enter your password to continue.</p>
+
+            <form id="auth-form" class="auth-form">
+                <div id="setup-confirm-wrap" class="auth-field hidden">
+                    <label class="section-label" for="auth-confirm">Confirm Password</label>
+                    <input type="password" id="auth-confirm" class="form-input" autocomplete="new-password" placeholder="Re-enter password">
+                </div>
+                <div class="auth-field">
+                    <label class="section-label" id="auth-password-label" for="auth-password">Password</label>
+                    <input type="password" id="auth-password" class="form-input" autocomplete="current-password" placeholder="Enter password">
+                </div>
+                <button type="submit" id="auth-submit" class="btn btn-primary auth-submit">Unlock</button>
+                <button type="button" id="auth-logout" class="btn btn-secondary auth-logout hidden">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h1>Personal Univ.</h1>
+                        <span class="subtitle">Founder Curriculum</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Progress Tracker -->
+            <div class="progress-card">
+                <div class="progress-info">
+                    <span>Overall Completion</span>
+                    <span id="overall-percentage">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="overall-progress-bar" class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span id="completed-count">0</span> / <span id="total-count">0</span> Items
+                </div>
+            </div>
+
+            <!-- Navigation Sections -->
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Timeline</div>
+                <ul class="nav-list">
+                    <li class="nav-item active" data-year="1">
+                        <i data-lucide="calendar-days"></i>
+                        <span>Year 1: Foundation</span>
+                    </li>
+                    <li class="nav-item" data-year="2">
+                        <i data-lucide="cpu"></i>
+                        <span>Year 2: CS & Web Dev</span>
+                    </li>
+                    <li class="nav-item" data-year="3">
+                        <i data-lucide="brain-circuit"></i>
+                        <span>Year 3: AI & Product</span>
+                    </li>
+                    <li class="nav-item" data-year="4">
+                        <i data-lucide="briefcase"></i>
+                        <span>Year 4: Biz & Finance</span>
+                    </li>
+                    <li class="nav-item" data-year="5">
+                        <i data-lucide="users"></i>
+                        <span>Year 5: Leadership</span>
+                    </li>
+                    <li class="nav-item" data-year="6">
+                        <i data-lucide="infinity"></i>
+                        <span>Years 6–10: Deep Dive</span>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">Extras</div>
+                <ul class="nav-list">
+                    <li class="nav-item" data-extra="compounding">
+                        <i data-lucide="trending-up"></i>
+                        <span>Compounding Skills</span>
+                    </li>
+                    <li class="nav-item" data-extra="builds">
+                        <i data-lucide="hammer"></i>
+                        <span>Annual Build Log</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Backup & Restore -->
+            <div class="sidebar-footer">
+                <button id="btn-export" class="footer-btn">
+                    <i data-lucide="download"></i>
+                    <span>Export Progress</span>
+                </button>
+                <button id="btn-import-trigger" class="footer-btn">
+                    <i data-lucide="upload"></i>
+                    <span>Import Backup</span>
+                </button>
+                <button id="btn-logout" class="footer-btn">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </button>
+                <input type="file" id="import-file" style="display: none;" accept=".json">
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header bar -->
+            <header class="content-header">
+                <div class="header-title-area">
+                    <h2 id="current-view-title">Year 1: Foundation</h2>
+                    <p id="current-view-subtitle" class="text-muted">Building the lifetime mindset, core math, coding foundation, and health habits.</p>
+                </div>
+                <div class="view-actions">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="search-input" placeholder="Search topics, books...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content dynamic container -->
+            <div class="content-body" id="curriculum-container">
+                <!-- Javascript will inject the curriculum structure here dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Right Drawer for Item Editing & Notes -->
+    <div id="notes-drawer" class="drawer">
+        <div class="drawer-overlay" onclick="closeDrawer()"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <div class="drawer-title-area">
+                    <span id="drawer-item-type" class="badge">Book</span>
+                    <h3 id="drawer-item-title">Thinking, Fast and Slow</h3>
+                    <p id="drawer-item-subtitle" class="text-muted">Psychology &bull; Year 1 Phase 1</p>
+                </div>
+                <button class="close-btn" onclick="closeDrawer()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="drawer-body">
+                <!-- Status Toggle -->
+                <div class="drawer-section">
+                    <label class="section-label">Status</label>
+                    <div class="status-toggle-container">
+                        <button id="drawer-status-btn" class="status-btn" onclick="toggleDrawerItemStatus()">
+                            <i data-lucide="circle"></i>
+                            <span id="drawer-status-text">Not Started</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="drawer-section">
+                    <label class="section-label">Your Rating</label>
+                    <div class="rating-stars" id="drawer-rating-container">
+                        <!-- Stars injected dynamically -->
+                    </div>
+                </div>
+
+                <!-- Dates -->
+                <div class="drawer-section grid-2">
+                    <div>
+                        <label class="section-label" for="date-started">Date Started</label>
+                        <input type="date" id="date-started" class="form-input">
+                    </div>
+                    <div>
+                        <label class="section-label" for="date-completed">Date Completed</label>
+                        <input type="date" id="date-completed" class="form-input">
+                    </div>
+                </div>
+
+                <!-- Notes / Takeaways -->
+                <div class="drawer-section flex-grow">
+                    <label class="section-label" for="learning-notes">Notes & Key Takeaways</label>
+                    <textarea id="learning-notes" placeholder="Write down key takeaways, quotes, or application ideas here..."></textarea>
+                </div>
+            </div>
+
+            <div class="drawer-footer">
+                <button class="btn btn-secondary" onclick="closeDrawer()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveDrawerData()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Notification toast -->
+    <div id="toast" class="toast">
+        <i data-lucide="check-circle" class="toast-icon"></i>
+        <span id="toast-message">Progress saved!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
