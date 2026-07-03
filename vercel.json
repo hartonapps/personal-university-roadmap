@@ -1,6 +1,26 @@
 {
   "version": 2,
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": ".",
   "routes": [
+    {
+      "src": "/index.html",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/style.css",
+      "dest": "/style.css",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/app.js",
+      "dest": "/app.js",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"
