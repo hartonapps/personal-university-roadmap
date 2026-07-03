@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal University - Your founder master roadmap tracker">
+    <meta name="theme-color" content="#080c14">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Personal Univ.">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%238b5cf6' width='180' height='180'/><text x='50%' y='50%' font-size='90' fill='white' text-anchor='middle' dominant-baseline='central'>🎓</text></svg>">
+    <link rel="manifest" href="manifest.json">
     <title>Personal University | Founder Master Roadmap</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="auth-gate" class="auth-gate hidden">
         <div class="auth-card">
-            <div class="auth-badge">Private access</div>
+            <div class="auth-badge">🔒 Private access</div>
             <h1>Unlock Personal Univ.</h1>
             <p id="auth-message" class="text-muted">Enter your password to continue.</p>
 
@@ -39,9 +43,7 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-area">
-                    <div class="logo-icon">
-                        <i data-lucide="graduation-cap"></i>
-                    </div>
+                    <div class="logo-icon">🎓</div>
                     <div>
                         <h1>Personal Univ.</h1>
                         <span class="subtitle">Founder Curriculum</span>
@@ -68,27 +70,27 @@
                 <div class="nav-section-title">Timeline</div>
                 <ul class="nav-list">
                     <li class="nav-item active" data-year="1">
-                        <i data-lucide="calendar-days"></i>
+                        <span class="nav-emoji">📅</span>
                         <span>Year 1: Foundation</span>
                     </li>
                     <li class="nav-item" data-year="2">
-                        <i data-lucide="cpu"></i>
+                        <span class="nav-emoji">💻</span>
                         <span>Year 2: CS & Web Dev</span>
                     </li>
                     <li class="nav-item" data-year="3">
-                        <i data-lucide="brain-circuit"></i>
+                        <span class="nav-emoji">🧠</span>
                         <span>Year 3: AI & Product</span>
                     </li>
                     <li class="nav-item" data-year="4">
-                        <i data-lucide="briefcase"></i>
+                        <span class="nav-emoji">💼</span>
                         <span>Year 4: Biz & Finance</span>
                     </li>
                     <li class="nav-item" data-year="5">
-                        <i data-lucide="users"></i>
+                        <span class="nav-emoji">👥</span>
                         <span>Year 5: Leadership</span>
                     </li>
                     <li class="nav-item" data-year="6">
-                        <i data-lucide="infinity"></i>
+                        <span class="nav-emoji">♾️</span>
                         <span>Years 6–10: Deep Dive</span>
                     </li>
                 </ul>
@@ -96,11 +98,11 @@
                 <div class="nav-section-title">Extras</div>
                 <ul class="nav-list">
                     <li class="nav-item" data-extra="compounding">
-                        <i data-lucide="trending-up"></i>
+                        <span class="nav-emoji">📈</span>
                         <span>Compounding Skills</span>
                     </li>
                     <li class="nav-item" data-extra="builds">
-                        <i data-lucide="hammer"></i>
+                        <span class="nav-emoji">🔨</span>
                         <span>Annual Build Log</span>
                     </li>
                 </ul>
@@ -109,16 +111,13 @@
             <!-- Backup & Restore -->
             <div class="sidebar-footer">
                 <button id="btn-export" class="footer-btn">
-                    <i data-lucide="download"></i>
-                    <span>Export Progress</span>
+                    <span>⬇️ Export Progress</span>
                 </button>
                 <button id="btn-import-trigger" class="footer-btn">
-                    <i data-lucide="upload"></i>
-                    <span>Import Backup</span>
+                    <span>⬆️ Import Backup</span>
                 </button>
                 <button id="btn-logout" class="footer-btn">
-                    <i data-lucide="log-out"></i>
-                    <span>Logout</span>
+                    <span>🚪 Logout</span>
                 </button>
                 <input type="file" id="import-file" style="display: none;" accept=".json">
             </div>
@@ -134,7 +133,7 @@
                 </div>
                 <div class="view-actions">
                     <div class="search-box">
-                        <i data-lucide="search"></i>
+                        <span>🔍</span>
                         <input type="text" id="search-input" placeholder="Search topics, books...">
                     </div>
                 </div>
@@ -153,13 +152,11 @@
         <div class="drawer-content">
             <div class="drawer-header">
                 <div class="drawer-title-area">
-                    <span id="drawer-item-type" class="badge">Book</span>
+                    <span id="drawer-item-type" class="badge">📚 Book</span>
                     <h3 id="drawer-item-title">Thinking, Fast and Slow</h3>
-                    <p id="drawer-item-subtitle" class="text-muted">Psychology &bull; Year 1 Phase 1</p>
+                    <p id="drawer-item-subtitle" class="text-muted">Psychology • Year 1 Phase 1</p>
                 </div>
-                <button class="close-btn" onclick="closeDrawer()">
-                    <i data-lucide="x"></i>
-                </button>
+                <button class="close-btn" onclick="closeDrawer()">❌</button>
             </div>
             
             <div class="drawer-body">
@@ -168,8 +165,7 @@
                     <label class="section-label">Status</label>
                     <div class="status-toggle-container">
                         <button id="drawer-status-btn" class="status-btn" onclick="toggleDrawerItemStatus()">
-                            <i data-lucide="circle"></i>
-                            <span id="drawer-status-text">Not Started</span>
+                            <span id="drawer-status-text">⭕ Not Started</span>
                         </button>
                     </div>
                 </div>
@@ -210,10 +206,16 @@
 
     <!-- Custom Notification toast -->
     <div id="toast" class="toast">
-        <i data-lucide="check-circle" class="toast-icon"></i>
         <span id="toast-message">Progress saved!</span>
     </div>
 
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('✓ Service Worker registered'))
+                .catch(err => console.log('✗ SW registration failed:', err));
+        }
+    </script>
 </body>
 </html>
